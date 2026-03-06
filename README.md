@@ -1,8 +1,7 @@
 # 🚀 Dockerfile Generator — Python & PowerShell
 
 Ce repository propose deux scripts permettant de générer automatiquement un Dockerfile à partir d'une image Docker choisie par l'utilisateur.  
-Il s'agit d'un outil simple, pédagogique et portable, utile pour les environnements DevOps, les labs, ou les démonstrations.
-
+Il s'agit d'un outil simple et utile pour les environnements DevOps ou les labs.
 ---
 
 ## 📦 Fonctionnalités
@@ -21,13 +20,3 @@ Il s'agit d'un outil simple, pédagogique et portable, utile pour les environnem
 
 ```bash
 python generate_dockerfile.py
-
----
-
-## 🏗️ Build & Run
-
-Après génération du Dockerfile :
-
-```bash
-docker build -t mon_app .
-docker run --rm mon_app
