@@ -28,6 +28,5 @@ python generate_dockerfile.py
 
 Après génération du Dockerfile :
 
-```bash
 docker build -t mon_app .
 docker run --rm mon_app
