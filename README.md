@@ -21,3 +21,13 @@ Il s'agit d'un outil simple, pédagogique et portable, utile pour les environnem
 
 ```bash
 python generate_dockerfile.py
+
+---
+
+## 🏗️ Build & Run
+
+Après génération du Dockerfile :
+
+```bash
+docker build -t mon_app .
+docker run --rm mon_app
