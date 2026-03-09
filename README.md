@@ -6,11 +6,11 @@ Il s'agit d'un outil simple et utile pour les environnements DevOps ou les labs.
 
 ## 📦 Fonctionnalités
 
-- Choix interactif de l'image Docker (ex: `python:3.11-slim`)
 - Génération automatique d'un `Dockerfile`
 - Création d'un fichier `app.py` minimal
 - Disponible en **Python** et en **PowerShell**
 - Compatible Windows, Linux et macOS
+- Structure claire et organisée dans feature/
 
 ---
 
@@ -29,7 +29,7 @@ Il s'agit d'un outil simple et utile pour les environnements DevOps ou les labs.
 
 ```bash
 git clone <URL_DU_REPO>
-cd <NOM_DU_REPO>
+cd Dockerfile-Generator
 ```
 
 ### 2️⃣ Choisir le langage d’exécution
@@ -37,7 +37,8 @@ cd <NOM_DU_REPO>
 #### Option A — Utiliser le script Python
 
 ```bash
-python generate_dockerfile.py
+cd feature/python-script
+python3 generate_dockerfile.py --image python:3.12-slim --app-name monapp
 ```
 
 #### Option B — Utiliser le script PowerShell
@@ -51,8 +52,13 @@ Sous Windows PowerShell :
 Sous PowerShell Core (Linux/macOS) :
 
 ```powershell
-pwsh ./generate_dockerfile.ps1
+cd feature/powershell-script
+.\generate-dockerfile.ps1
 ```
+
+Sous PowerShell Core (Linux/macOS) :
+cd feature/powershell-script
+pwsh ./generate-dockerfile.ps1
 
 ### 3️⃣ Instructions
 
@@ -75,10 +81,15 @@ docker run --rm my-app
 
 ```text
 /
-├── generate_dockerfile.py      # Script Python
-├── generate_dockerfile.ps1     # Script PowerShell
-├── Dockerfile                  # Généré automatiquement
-└── app.py                      # Généré automatiquement
+├── feature/
+│   ├── powershell-script/
+│   │   ├── generate-dockerfile.ps1
+│   │   └── README.md
+│   └── python-script/
+│       ├── generate_dockerfile.py
+│       └── README.md
+├── examples/                 # (optionnel)
+└── README.md                 # README principal
 ```
 
 ## 🐳 Exemple de Dockerfile généré
