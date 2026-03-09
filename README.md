@@ -29,6 +29,22 @@ Il inclut également un docker‑compose multi‑services permettant de déploye
 
 ---
 
+## 📁 Structure du projet
+
+```text
+/
+├── docker-compose.yml
+├── nginx.conf
+├── feature/
+│   ├── powershell-script/
+│   │   ├── generate-dockerfile.ps1
+│   └── python-script/
+│       ├── generate_dockerfile.py
+└── README.md             
+```
+
+---
+
 ## 🧭 Étapes d’utilisation des scripts
 
 ### 1️⃣ Cloner le repository
@@ -79,19 +95,7 @@ docker build -t my-app .
 docker run --rm my-app
 ```
 
-## 📁 Structure du projet
-
-```text
-/
-├── docker-compose.yml
-├── nginx.conf
-├── feature/
-│   ├── powershell-script/
-│   │   ├── generate-dockerfile.ps1
-│   └── python-script/
-│       ├── generate_dockerfile.py
-└── README.md             
-```
+---
 
 ## 🐳 Stack Docker multi‑services
 Une fois ton Dockerfile généré, tu peux lancer la stack complète :
