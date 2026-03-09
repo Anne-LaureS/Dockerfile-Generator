@@ -80,11 +80,8 @@ docker run --rm my-app
 ├── feature/
 │   ├── powershell-script/
 │   │   ├── generate-dockerfile.ps1
-│   │   └── README.md
 │   └── python-script/
 │       ├── generate_dockerfile.py
-│       └── README.md
-├── examples/                 # (optionnel)
 └── README.md                 # README principal
 ```
 
