@@ -56,10 +56,6 @@ cd feature/powershell-script
 .\generate-dockerfile.ps1
 ```
 
-Sous PowerShell Core (Linux/macOS) :
-cd feature/powershell-script
-pwsh ./generate-dockerfile.ps1
-
 ### 3️⃣ Instructions
 
 Les deux scripts fonctionnent de la même façon :
@@ -107,7 +103,6 @@ CMD ["python", "app.py"]
 
 - Accélérer la création de Dockerfiles simples
 - Standardiser des labs ou démos DevOps
-- Servir de support pédagogique minimal et clair
 
 ```
 
