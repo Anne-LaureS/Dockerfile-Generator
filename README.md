@@ -54,7 +54,7 @@ Sous PowerShell Core (Linux/macOS) :
 pwsh ./generate_dockerfile.ps1
 ```
 
-### 3️⃣ Répondre aux questions
+### 3️⃣ Instructions
 
 Les deux scripts fonctionnent de la même façon :
 
