@@ -82,7 +82,7 @@ docker run --rm my-app
 │   │   ├── generate-dockerfile.ps1
 │   └── python-script/
 │       ├── generate_dockerfile.py
-└── README.md                 # README principal
+└── README.md             
 ```
 
 ## 🐳 Exemple de Dockerfile généré
