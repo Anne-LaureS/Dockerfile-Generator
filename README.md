@@ -133,7 +133,7 @@ CMD ["python", "app.py"]
 
 ---
 
-## 🎯 Objectif
+## 🎯 Objectifs
 
 - Comprendre la génération automatisée de Dockerfiles
 - Manipuler Docker et Docker Compose
