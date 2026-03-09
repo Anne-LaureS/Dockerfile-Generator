@@ -136,6 +136,5 @@ CMD ["python", "app.py"]
 - Déployer une stack multi‑services
 - Illustrer une architecture simple type micro‑services
 - Standardiser des labs ou démos DevOps
-
 ```
 
