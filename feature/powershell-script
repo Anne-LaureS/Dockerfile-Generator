@@ -1,0 +1,33 @@
+# Script : generate_dockerfile.ps1
+# Description : Génère un Dockerfile et un app.py minimal à partir d'une image Docker choisie par l'utilisateur.
+
+Write-Host "=== Dockerfile Generator (PowerShell) ===" -ForegroundColor Cyan
+
+# Demande de l'image Docker
+$image = Read-Host "Entrez le nom de l'image Docker (ex: python:3.11-slim)"
+
+if ([string]::IsNullOrWhiteSpace($image)) {
+    Write-Host "Aucune image fournie. Annulation." -ForegroundColor Red
+    exit
+}
+
+# Contenu du Dockerfile
+$dockerfileContent = @"
+FROM $image
+
+WORKDIR /app
+COPY app.py .
+
+CMD ["python", "app.py"]
+"@
+
+# Contenu du app.py
+$appContent = @"
+print("Hello from Docker!")
+"@
+
+# Écriture des fichiers
+Set-Content -Path "Dockerfile" -Value $dockerfileContent -Encoding UTF8
+Set-Content -Path "app.py" -Value $appContent -Encoding UTF8
+
+Write-Host "Dockerfile et app.py générés avec succès !" -ForegroundColor Green
