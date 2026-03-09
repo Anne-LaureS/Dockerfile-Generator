@@ -1,11 +1,12 @@
 # 🚀 Dockerfile Generator — Python & PowerShell
 
-Ce repository propose deux scripts permettant de générer automatiquement un Dockerfile ainsi qu’un fichier app.py minimal à partir d’une image Docker choisie par l’utilisateur.
-Il inclut également un docker‑compose multi‑services permettant de déployer une stack complète :
+Ce repository propose deux scripts permettant de générer automatiquement un **Dockerfile** ainsi qu’un fichier `app.py` minimal à partir d’une image Docker choisie par l’utilisateur.
+Il inclut également une **stack Docker multi‑services** basée sur Docker Compose, comprenant :
 
-- une application Python (générée via ton script)
+- une application Python (générée via un script)
 - un reverse proxy Nginx
 - un service Redis
+- un mode alternatif où Nginx sert un `index.html` statique
   
 ---
 
@@ -14,18 +15,20 @@ Il inclut également un docker‑compose multi‑services permettant de déploye
 - Génération automatique d'un `Dockerfile`
 - Création d'un fichier `app.py` minimal
 - Scripts disponibles en **Python** et en **PowerShell**
-- Compatible Windows, Linux et macOS
+- Compatible **Windows, Linux et macOS**
 - Stack Docker complète via `docker-compose.yml`
 - Reverse proxy Nginx + service Redis
+- Mode statique Nginx (serveur HTML)
 
 ---
 
 ## ✅ Prérequis
 
-- Docker installé (recommandé pour tester l’image)
+- Docker installé
 - Au choix :
   - Python 3.x  
   - PowerShell 5+ (Windows) ou PowerShell Core 7+ (Linux/macOS)
+  - Git (pour cloner le repo)
 
 ---
 
@@ -35,17 +38,19 @@ Il inclut également un docker‑compose multi‑services permettant de déploye
 /
 ├── docker-compose.yml
 ├── nginx.conf
+├── html/
+│   └── index.html
 ├── feature/
 │   ├── powershell-script/
 │   │   ├── generate-dockerfile.ps1
 │   └── python-script/
-│       ├── generate_dockerfile.py
+│       └── generate_dockerfile.py
 └── README.md             
 ```
 
 ---
 
-## 🧭 Étapes d’utilisation des scripts
+## 🧭 Utilisation des scripts
 
 ### 1️⃣ Cloner le repository
 
@@ -54,7 +59,7 @@ git clone <URL_DU_REPO>
 cd Dockerfile-Generator
 ```
 
-### 2️⃣ Choisir le langage d’exécution
+### 2️⃣ Générer les fichiers Docker (Dockerfile + app.py)
 
 #### Option A — Utiliser le script Python
 
@@ -104,18 +109,48 @@ Une fois ton Dockerfile généré, tu peux lancer la stack complète :
 - nginx : reverse proxy qui redirige vers app
 - redis : service cache
 
-▶️ Lancer la stack
+---
+
+## 🔀 Modes de fonctionnement Nginx
+Ce projet supporte **deux modes** selon ce que l'on veut démontrer.
+
+## 1️⃣ Mode Reverse Proxy (Nginx → Application Python)
+Dans ce mode :
+- Nginx écoute sur `localhost:8080`
+- Il redirige vers `app:80`
+- Le fichier `nginx.conf` est utilisé
+
+## ▶️ Lancer la stack
 
 ```bash
 docker compose up -d
+```
+
+▶️ Accéder à l’application
+```bash
+http://localhost:8080
 ```
 
 ▶️ Arrêter
 ```bash
 docker compose down
 ```
+---
 
-▶️ Accéder à l’application
+## 2️⃣ Mode Serveur Statique (Nginx → index.html)
+Dans ce mode :
+- Nginx sert directement `html/index.html`
+- Aucun backend requis
+
+## ▶️ Activer ce mode
+Dans `docker-compose.yml`, ajouter dans le service `nginx` :
+
+```yaml
+volumes:
+  - ./html:/usr/share/nginx/html:ro
+```
+
+### ▶️ Accéder
 ```bash
 http://localhost:8080
 ```
@@ -141,4 +176,3 @@ CMD ["python", "app.py"]
 - Illustrer une architecture simple type micro‑services
 - Standardiser des labs ou démos DevOps
 ```
-
