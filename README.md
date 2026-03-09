@@ -1,16 +1,22 @@
 # 🚀 Dockerfile Generator — Python & PowerShell
 
-Ce repository propose deux scripts permettant de générer automatiquement un Dockerfile à partir d'une image Docker choisie par l'utilisateur.  
-Il s'agit d'un outil simple et utile pour les environnements DevOps ou les labs.
+Ce repository propose deux scripts permettant de générer automatiquement un Dockerfile ainsi qu’un fichier app.py minimal à partir d’une image Docker choisie par l’utilisateur.
+Il inclut également un docker‑compose multi‑services permettant de déployer une stack complète :
+
+- une application Python (générée via ton script)
+- un reverse proxy Nginx
+- un service Redis
+  
 ---
 
 ## 📦 Fonctionnalités
 
 - Génération automatique d'un `Dockerfile`
 - Création d'un fichier `app.py` minimal
-- Disponible en **Python** et en **PowerShell**
+- Scripts disponibles en **Python** et en **PowerShell**
 - Compatible Windows, Linux et macOS
-- Structure claire et organisée dans feature/
+- Stack Docker complète via `docker-compose.yml`
+- Reverse proxy Nginx + service Redis
 
 ---
 
@@ -23,7 +29,7 @@ Il s'agit d'un outil simple et utile pour les environnements DevOps ou les labs.
 
 ---
 
-## 🧭 Étapes d’utilisation
+## 🧭 Étapes d’utilisation des scripts
 
 ### 1️⃣ Cloner le repository
 
@@ -77,12 +83,37 @@ docker run --rm my-app
 
 ```text
 /
+├── docker-compose.yml
+├── nginx.conf
 ├── feature/
 │   ├── powershell-script/
 │   │   ├── generate-dockerfile.ps1
 │   └── python-script/
 │       ├── generate_dockerfile.py
 └── README.md             
+```
+
+## 🐳 Stack Docker multi‑services
+Une fois ton Dockerfile généré, tu peux lancer la stack complète :
+
+- app : ton application Python
+- nginx : reverse proxy qui redirige vers app
+- redis : service cache
+
+▶️ Lancer la stack
+
+```bash
+docker compose up -d
+```
+
+▶️ Arrêter
+```bash
+docker compose down
+```
+
+▶️ Accéder à l’application
+```bash
+http://localhost:8080
 ```
 
 ## 🐳 Exemple de Dockerfile généré
@@ -96,9 +127,14 @@ COPY app.py .
 CMD ["python", "app.py"]
 ```
 
+---
+
 ## 🎯 Objectif
 
-- Accélérer la création de Dockerfiles simples
+- Comprendre la génération automatisée de Dockerfiles
+- Manipuler Docker et Docker Compose
+- Déployer une stack multi‑services
+- Illustrer une architecture simple type micro‑services
 - Standardiser des labs ou démos DevOps
 
 ```
