@@ -103,7 +103,7 @@ docker run --rm my-app
 ---
 
 ## 🐳 Stack Docker multi‑services
-Une fois ton Dockerfile généré, tu peux lancer la stack complète :
+Une fois le Dockerfile généré, on lance la stack complète :
 
 - app : ton application Python
 - nginx : reverse proxy qui redirige vers app
