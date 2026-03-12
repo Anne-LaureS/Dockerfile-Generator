@@ -1,4 +1,4 @@
-# 🚀 Dockerfile Generator — Python & PowerShell
+# 🐋 Dockerfile Generator — Python & PowerShell
 
 Ce repository propose deux scripts permettant de générer automatiquement un **Dockerfile** ainsi qu’un fichier `app.py` minimal à partir d’une image Docker choisie par l’utilisateur.
 Il inclut également une **stack Docker multi‑services** basée sur Docker Compose, comprenant :
