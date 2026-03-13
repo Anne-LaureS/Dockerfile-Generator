@@ -1,4 +1,5 @@
-# 🐋 Dockerfile Generator — Python & PowerShell
+![Dockerfile](https://img.shields.io/badge/Dockerfile-Build-blue?logo=docker)
+# Dockerfile Generator — Python & PowerShell
 ![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python)
 ![PowerShell](https://img.shields.io/badge/PowerShell-7.x-5391FE?logo=powershell)
 ![Docker](https://img.shields.io/badge/Dockerfile-Generator-2496ED?logo=docker)
