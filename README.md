@@ -1,4 +1,11 @@
 # 🐋 Dockerfile Generator — Python & PowerShell
+![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python)
+![PowerShell](https://img.shields.io/badge/PowerShell-7.x-5391FE?logo=powershell)
+![Docker](https://img.shields.io/badge/Dockerfile-Generator-2496ED?logo=docker)
+![Status](https://img.shields.io/badge/Status-Fonctionnel-brightgreen)
+![Projet](https://img.shields.io/badge/Projet-Pédagogique-orange)
+
+---
 
 Ce repository propose deux scripts permettant de générer automatiquement un **Dockerfile** ainsi qu’un fichier `app.py` minimal à partir d’une image Docker choisie par l’utilisateur.
 Il inclut également une **stack Docker multi‑services** basée sur Docker Compose, comprenant :
