@@ -1,8 +1,7 @@
-<p align="center">
-  <img src="https://www.docker.com/wp-content/uploads/2022/03/Moby-logo.png" alt="Docker Logo" width="120">
-</p>
+<img src="https://www.docker.com/wp-content/uploads/2022/03/Moby-logo.png" alt="Docker Logo" width="60" align="left">
 
-# 🐋 Dockerfile Generator — Python & PowerShell
+# Dockerfile Generator — Python & PowerShell
+
 ---
 
 ![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python)
