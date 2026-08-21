@@ -199,6 +199,21 @@ CMD ["python", "app.py"]
 
 ---
 
+## 📦 Image publiée (GitHub Container Registry)
+
+L'outil (script Python) est aussi publié en image Docker prête à l'emploi — pas besoin de
+Python installé localement :
+
+```bash
+mkdir mon-projet && cd mon-projet
+docker run --rm -v "$(pwd)":/output ghcr.io/anne-laures/dockerfile-generator:latest \
+  --image python:3.11-slim --app-name monapp
+```
+
+Le `Dockerfile` et `app.py` générés apparaissent directement dans `mon-projet/` sur ta
+machine (le volume monté sur `/output` fait le lien). Image reconstruite automatiquement à
+chaque changement du script (`.github/workflows/publish-image.yml`).
+
 ## 🎯 Objectifs
 
 - Comprendre la génération automatisée de Dockerfiles
