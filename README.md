@@ -73,26 +73,20 @@ cd Dockerfile-Generator
 
 ### 2️⃣ Générer les fichiers Docker (Dockerfile + app.py)
 
+⚠️ **Lancer la commande depuis la racine du repo** (pas depuis `feature/...`) — les deux
+scripts écrivent `Dockerfile`/`app.py` dans le dossier courant, et `docker-compose.yml`
+(étape 4) s'attend justement à les trouver à la racine.
+
 #### Option A — Utiliser le script Python
 
 ```bash
-cd feature/python-script
-python3 generate_dockerfile.py --image python:3.12-slim --app-name monapp
+python3 feature/python-script/generate_dockerfile.py --image python:3.12-slim --app-name monapp
 ```
 
 #### Option B — Utiliser le script PowerShell
 
-Sous Windows PowerShell :
-
 ```powershell
-.\generate_dockerfile.ps1
-```
-
-Sous PowerShell Core (Linux/macOS) :
-
-```powershell
-cd feature/powershell-script
-.\generate-dockerfile.ps1
+.\feature\powershell-script\generate-dockerfile.ps1
 ```
 
 ### 3️⃣ Instructions
