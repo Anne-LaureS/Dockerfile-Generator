@@ -54,7 +54,7 @@ Il inclut également une **stack Docker multi‑services** basée sur Docker Com
 │   └── index.html
 ├── feature/
 │   ├── powershell-script/
-│   │   ├── generate-dockerfile.ps1
+│   │   └── generate-dockerfile.ps1
 │   └── python-script/
 │       └── generate_dockerfile.py
 └── README.md             
@@ -175,8 +175,27 @@ FROM python:3.11-slim
 WORKDIR /app
 COPY app.py .
 
+USER 1000:1000
+
 CMD ["python", "app.py"]
 ```
+
+---
+
+## 🔐 Sécurité
+
+- **Utilisateur non-root** : chaque Dockerfile généré tourne sous un UID/GID numérique
+  (`1000:1000`) plutôt qu'en root par défaut — réduit la surface d'attaque en cas de
+  compromission du conteneur. Choix volontairement numérique (pas `adduser`/`addgroup`,
+  dont la syntaxe diffère entre images Debian et Alpine) pour rester portable quelle que
+  soit l'image de base choisie.
+- **Images pinnées** : `nginx:1.31-alpine` et `redis:8.10.1-alpine` plutôt que `:latest`,
+  pour des builds reproductibles.
+- **Redis non exposé au host** : le service `redis` n'ouvre plus de port sur la machine
+  hôte (Redis n'a pas d'authentification activée par défaut) — seul `app`, sur le même
+  réseau Docker interne, peut l'atteindre.
+- **`server_tokens off`** dans `nginx.conf` : la version nginx n'apparaît plus dans les
+  en-têtes de réponse.
 
 ---
 

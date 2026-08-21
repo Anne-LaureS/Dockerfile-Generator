@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # Script : generate_dockerfile.py
-# Description : Génère un Dockerfile et un app.py minimal à partir d'une image Docker choisie
+# Description : Génère un Dockerfile durci (utilisateur non-root) et un app.py minimal
+#               à partir d'une image Docker choisie
 
 import argparse
 import os
@@ -12,6 +13,12 @@ def generate_dockerfile(image):
 
 WORKDIR /app
 COPY app.py .
+
+# UID/GID non-root numérique — portable quelle que soit la distro de l'image de base
+# choisie (Debian/Alpine/...), contrairement à adduser/addgroup dont la syntaxe diffère
+# selon la distro. L'image tourne en root par défaut sinon, ce qui élargit inutilement
+# la surface d'attaque en cas de compromission du conteneur.
+USER 1000:1000
 
 CMD ["python", "app.py"]
 """
