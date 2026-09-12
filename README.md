@@ -67,7 +67,7 @@ Il inclut également une **stack Docker multi‑services** basée sur Docker Com
 ### 1️⃣ Cloner le repository
 
 ```bash
-git clone <URL_DU_REPO>
+git clone https://github.com/Anne-LaureS/Dockerfile-Generator.git
 cd Dockerfile-Generator
 ```
 
