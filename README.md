@@ -109,57 +109,29 @@ docker run --rm my-app
 ---
 
 ## 🐳 Stack Docker multi‑services
-Une fois le Dockerfile généré, on lance la stack complète :
-
-- app : ton application Python
-- nginx : reverse proxy qui redirige vers app
-- redis : service cache
-
----
-
-## 🔀 Modes de fonctionnement Nginx
-Ce projet supporte **deux modes** selon ce que l'on veut démontrer.
-
-## 1️⃣ Mode Reverse Proxy (Nginx → Application Python)
-Dans ce mode :
-- Nginx écoute sur `localhost:8080`
-- Il redirige vers `app:80`
-- Le fichier `nginx.conf` est utilisé
-
-## ▶️ Lancer la stack
 
 ```bash
 docker compose up -d
 ```
 
-▶️ Accéder à l’application
+- **nginx** : sert directement `html/index.html` (page de démo statique), durci via `nginx.conf`
+  (`server_tokens off`)
+- **redis** : service cache, sur le réseau interne `appnet` uniquement (pas de port exposé à l'hôte,
+  volontaire — Redis n'a pas d'authentification par défaut)
+
+▶️ Accéder à la page de démo
 ```bash
-http://localhost:8080
+http://localhost:8090
 ```
 
 ▶️ Arrêter
 ```bash
 docker compose down
 ```
----
 
-## 2️⃣ Mode Serveur Statique (Nginx → index.html)
-Dans ce mode :
-- Nginx sert directement `html/index.html`
-- Aucun backend requis
-
-## ▶️ Activer ce mode
-Dans `docker-compose.yml`, ajouter dans le service `nginx` :
-
-```yaml
-volumes:
-  - ./html:/usr/share/nginx/html:ro
-```
-
-### ▶️ Accéder
-```bash
-http://localhost:8080
-```
+ℹ️ Cette stack ne fait pas tourner l'outil générateur lui-même (packagé séparément via
+`docker/Dockerfile`, voir plus haut) — elle sert uniquement à démontrer nginx + redis + réseau Docker
+Compose.
 
 ## 🐳 Exemple de Dockerfile généré
 
