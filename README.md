@@ -2,6 +2,8 @@
 
 # Dockerfile Generator — Python & PowerShell
 
+[![Licence MIT](https://img.shields.io/badge/licence-MIT-green)](LICENSE)
+
 ---
 
 ![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python)
@@ -187,3 +189,10 @@ chaque changement du script (`.github/workflows/publish-image.yml`).
 - Déployer une stack multi‑services
 - Illustrer une architecture simple type micro‑services
 - Standardiser des labs ou démos DevOps
+
+---
+
+## 📜 Licence
+
+Publié sous licence [MIT](LICENSE) © 2026 Anne-LaureS : réutilisation libre, à condition de conserver la
+mention de copyright. Fourni « tel quel », sans garantie.
